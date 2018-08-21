@@ -74,7 +74,6 @@ else:
 sender = Sender(sock=socket_path) if socket_path else Sender(host=host,port=port)
 action_list = deque([])
 log_list = deque([], maxlen=30)
-lt_arena = 0
 get_info_diff = 360
 hero_message_id = 0
 last_captcha_id = 0
@@ -129,7 +128,6 @@ def queue_worker():
 
 
 def parse_text(text, username, message_id):
-    global lt_arena
     global hero_message_id
     global bot_enabled
     global arena_enabled
