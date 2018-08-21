@@ -202,29 +202,6 @@ def parse_text(text, username, message_id):
         if corovan_enabled and text.find(' пытается ограбить') != -1:
             action_list.append(orders['corovan'])
 
-    else:
-        if bot_enabled and order_enabled and username in order_usernames:
-            if text.find(orders['red']) != -1:
-                update_order(orders['red'])
-            elif text.find(orders['black']) != -1:
-                update_order(orders['black'])
-            elif text.find(orders['white']) != -1:
-                update_order(orders['white'])
-            elif text.find(orders['yellow']) != -1:
-                update_order(orders['yellow'])
-            elif text.find(orders['blue']) != -1:
-                update_order(orders['blue'])
-            elif text.find(orders['mint']) != -1:
-                update_order(orders['mint'])
-            elif text.find(orders['twilight']) != -1:
-                update_order(orders['twilight'])
-            elif text.find('🌲') != -1:
-                update_order(orders['lesnoi_fort'])
-            elif text.find('⛰') != -1:
-                update_order(orders['gorni_fort'])
-            elif text.find('🛡') != -1:
-                update_order(castle)
-
         # send_msg(pref, admin_username, 'Получили команду ' + current_order['order'] + ' от ' + username)
         if username == admin_username:
             if text == '#help':
