@@ -199,7 +199,7 @@ def parse_text(text, username, message_id):
     if bot_enabled and username == bot_username:
         log('Получили сообщение от бота. Проверяем условия')
 
-        elif corovan_enabled and text.find(' пытается ограбить') != -1:
+        if corovan_enabled and text.find(' пытается ограбить') != -1:
             action_list.append(orders['corovan'])
 
             if peshera_enabled and endurance >= 2 and text.find('🛌Отдых') != -1:
@@ -225,23 +225,6 @@ def parse_text(text, username, message_id):
                     log('Топаем на арену')
                 else:
                     log('По часам не проходим на арену. Сейчас ' + str(curhour) + ' часов')
-
-        elif arena_enabled and text.find('выбери точку атаки и точку защиты') != -1:
-            arena_running = True #на случай, если арена запущена руками
-            lt_arena = time()
-            attack_chosen = arena_attack[random.randint(0, 2)]
-            cover_chosen = arena_cover[random.randint(0, 2)]
-            log('Атака: {0}, Защита: {1}'.format(attack_chosen, cover_chosen))
-            action_list.append(attack_chosen)
-            action_list.append(cover_chosen)
-
-        elif text.find('Победил воин') != -1 or text.find('Ничья') != -1:
-            log('Выключаем флаг - арена закончилась')
-            arena_running = False
-
-        elif quest_fight_enabled and text.find('/fight') != -1:
-            c = re.search('(\/fight.*)', text).group(1)
-            action_list.append(c)
 
 
     else:
