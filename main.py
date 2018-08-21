@@ -6,6 +6,8 @@ from collections import deque
 from time import time, sleep
 from getopt import getopt
 from datetime import datetime
+from random import randint
+import time
 import sys
 import re
 import _thread
@@ -249,7 +251,7 @@ def parse_text(text, username, message_id):
             arena_running = False
 
         elif corovan_enabled and text.find(' пытается ограбить') != -1:
-            sleep(randint(2, 40))
+            time.sleep(random.randint(2, 40))
             action_list.append(orders['corovan'])
 
         elif text.find('Битва семи замков через') != -1:
