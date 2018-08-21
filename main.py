@@ -202,31 +202,6 @@ def parse_text(text, username, message_id):
         if corovan_enabled and text.find(' пытается ограбить') != -1:
             action_list.append(orders['corovan'])
 
-            if peshera_enabled and endurance >= 2 and text.find('🛌Отдых') != -1:
-                if les_enabled:
-                    action_list.append(orders['quests'])
-                    action_list.append(random.choice([orders['peshera'], orders['les']]))
-                else:
-                    action_list.append(orders['quests'])
-                    action_list.append(orders['peshera'])
-
-            elif les_enabled and not peshera_enabled and endurance >= 1 and orders['les'] not in action_list and text.find('🛌Отдых') != -1:
-                action_list.append(orders['quests'])
-                action_list.append(orders['les'])
-
-            elif arena_enabled and not arena_delay and gold >= 5 and not arena_running and text.find('🛌Отдых') != -1:
-                curhour = datetime.now(tz).hour
-                if 9 <= curhour <= 23:
-                    log('Включаем флаг - арена запущена')
-                    arena_running = True
-                    action_list.append(orders['castle_menu'])
-                    action_list.append('📯Арена')
-                    action_list.append('🔎Поиск соперника')
-                    log('Топаем на арену')
-                else:
-                    log('По часам не проходим на арену. Сейчас ' + str(curhour) + ' часов')
-
-
     else:
         if bot_enabled and order_enabled and username in order_usernames:
             if text.find(orders['red']) != -1:
