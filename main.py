@@ -193,16 +193,6 @@ def fwd(pref, to, message_id):
     sender.fwd(pref + to, message_id)
 
 
-def update_order(order):
-    current_order['order'] = order
-    current_order['time'] = time()
-    if order == castle:
-        action_list.append(orders['cover'])
-    else:
-        action_list.append(orders['attack'])
-    action_list.append(order)
-
-
 def log(text):
     message = '{0:%Y-%m-%d %H:%M:%S}'.format(datetime.now()) + ' ' + text
     print(message)
