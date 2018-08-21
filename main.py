@@ -34,7 +34,7 @@ port = 1338
 # имя группы
 group_name = ''
 
-opts, args = getopt(sys.argv[1:], 'a:o:s:h:p:g:b:l:n', ['admin=', 'order=', 'socket=', 'host=', 'port=', 'group_name='])
+opts, args = getopt(sys.argv[1:], 'a:o:s:h:p:n', ['admin=', 'order=', 'socket=', 'host=', 'port=', 'group_name='])
 
 for opt, arg in opts:
     if opt in ('-a', '--admin'):
