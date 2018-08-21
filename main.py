@@ -13,7 +13,7 @@ import random
 import pytz
 
 # username игрового бота
-bot_username = 'ChatWarsBot'
+bot_username = 'keeketheone'
 
 # ваш username или username человека, который может отправлять запросы этому скрипту
 admin_username = ''
