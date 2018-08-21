@@ -6,8 +6,6 @@ from collections import deque
 from time import time, sleep
 from getopt import getopt
 from datetime import datetime
-from random import randint
-import time
 import sys
 import re
 import _thread
