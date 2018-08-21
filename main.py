@@ -119,15 +119,6 @@ def queue_worker():
     sleep(3)
     while True:
         try:
-            if time() - lt_info > get_info_diff:
-                if arena_delay and arena_delay_day != datetime.now(tz).day:
-                    arena_delay = False
-                lt_info = time()
-                get_info_diff = random.randint(12600, 14400)
-                if bot_enabled:
-                    send_msg('@', bot_username, orders['hero'])
-                continue
-
             if len(action_list):
                 log('Отправляем ' + action_list[0])
                 send_msg('@', bot_username, action_list.popleft())
