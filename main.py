@@ -89,11 +89,6 @@ orders = {
     'corovan': '/go',
     'peshera': '🕸Пещера',
     'quests': '🗺 Квесты',
-    'castle_menu': '🏰Замок',
-    'lavka': '🏚Лавка',
-    'snaraga': 'Снаряжение',
-    'shlem': 'Шлем',
-    'sell': 'Скупка предметов',
     'lvl_def': '+1 🛡Защита',
     'lvl_atk': '+1 ⚔️Атака',
     'lvl_off': 'Выключен'
@@ -219,44 +214,6 @@ def parse_text(text, username, message_id):
         elif corovan_enabled and text.find(' пытается ограбить') != -1:
             action_list.append(orders['corovan'])
 
-        elif text.find('Битва семи замков через') != -1:
-            hero_message_id = message_id
-            m = re.search('Битва семи замков через(?: ([0-9]+)ч){0,1}(?: ([0-9]+)){0,1}', text)
-            if not m.group(1):
-                if m.group(2) and int(m.group(2)) <= 59:
-                    state = re.search('Состояние:\n(.*)', text).group(1)
-                    if auto_def_enabled and time() - current_order['time'] > 3600 and 'Отдых' in state:
-                        if donate_enabled:
-                            gold = int(re.search('💰([0-9]+)', text).group(1))
-                            inv = re.search('🎒Рюкзак: ([0-9]+)/([0-9]+)', text)
-                            log('Рюкзак: {0} / {1}'.format(inv.group(1),inv.group(2)))
-                            if int(inv.group(1)) == int(inv.group(2)):
-                                log('Полный рюкзак - Донат в лавку отключен')
-                                donate_buying = False          
-                            if gold > gold_to_left:
-                                if donate_buying:
-                                    log('Донат {0} золота в лавку'.format(gold-gold_to_left))
-                                    action_list.append(orders['castle_menu'])
-                                    action_list.append(orders['lavka'])
-                                    action_list.append(orders['shlem'])
-                                    while (gold-gold_to_left) >= 35:
-                                        gold -= 35
-                                        action_list.append('/buy_helmet2')
-                                    while (gold-gold_to_left) > 0:
-                                        gold -= 1
-                                        action_list.append('/buy_helmet1')
-                                        action_list.append('/sell_206')
-                                else:
-                                    log('Донат {0} золота в казну замка'.format(gold-gold_to_left))
-                                    action_list.append('/donate {0}'.format(gold-gold_to_left))
-                        update_order(castle)
-                    return
-            log('Времени достаточно')
-            gold = int(re.search('💰([0-9]+)', text).group(1))
-            endurance = int(re.search('Выносливость: ([0-9]+)', text).group(1))
-            log('Золото: {0}, выносливость: {1}'.format(gold, endurance))
-            inv = re.search('🎒Рюкзак: ([0-9]+)/([0-9]+)', text)
-            log('Рюкзак: {0} / {1}'.format(inv.group(1),inv.group(2)))
             if peshera_enabled and endurance >= 2 and text.find('🛌Отдых') != -1:
                 if les_enabled:
                     action_list.append(orders['quests'])
