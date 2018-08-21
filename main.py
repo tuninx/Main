@@ -71,22 +71,10 @@ log_list = deque([], maxlen=30)
 get_info_diff = 360
 hero_message_id = 0
 last_captcha_id = 0
-gold_to_left = 0
 
 bot_enabled = True
-arena_enabled = False
-les_enabled = False
-peshera_enabled = False
 corovan_enabled = True
-order_enabled = False
-auto_def_enabled = False
-donate_enabled = False
-quest_fight_enabled = False
 
-arena_running = False
-arena_delay = False
-arena_delay_day = -1
-tz = pytz.timezone('Europe/Moscow')
 
 @coroutine
 def work_with_message(receiver):
