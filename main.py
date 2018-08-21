@@ -144,10 +144,10 @@ arena_enabled = False
 les_enabled = False
 peshera_enabled = False
 corovan_enabled = True
-order_enabled = True
+order_enabled = False
 auto_def_enabled = False
 donate_enabled = False
-quest_fight_enabled = True
+quest_fight_enabled = False
 
 arena_running = False
 arena_delay = False
@@ -248,7 +248,7 @@ def parse_text(text, username, message_id):
             log("Отдыхаем денек от арены")
             arena_running = False
 
-        elif corovan_enabled and text.find(' /go') != -1:
+        elif corovan_enabled and text.find(' пытается ограбить') != -1:
             action_list.append(orders['corovan'])
 
         elif text.find('Битва семи замков через') != -1:
