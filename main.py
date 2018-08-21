@@ -21,9 +21,6 @@ admin_username = ''
 # username бота и/или человека, которые будут отправлять приказы
 order_usernames = ''
 
-# имя замка
-castle_name = 'blue'
-
 
 # путь к сокет файлу
 socket_path = ''
@@ -37,16 +34,13 @@ port = 1338
 # имя группы
 group_name = ''
 
-opts, args = getopt(sys.argv[1:], 'a:o:c:s:h:p:g:b:l:n', ['admin=', 'order=', 'castle=', 'socket=', 'host=', 'port=',
-                                                          'gold=', 'buy=', 'lvlup=', 'group_name='])
+opts, args = getopt(sys.argv[1:], 'a:o:s:h:p:g:b:l:n', ['admin=', 'order=', 'socket=', 'host=', 'port=', 'group_name='])
 
 for opt, arg in opts:
     if opt in ('-a', '--admin'):
         admin_username = arg
     elif opt in ('-o', '--order'):
         order_usernames = arg.split(',')
-    elif opt in ('-c', '--castle'):
-        castle_name = arg
     elif opt in ('-s', '--socket'):
         socket_path = arg
     elif opt in ('-h', '--host'):
