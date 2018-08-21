@@ -70,7 +70,6 @@ action_list = deque([])
 log_list = deque([], maxlen=30)
 get_info_diff = 360
 hero_message_id = 0
-last_captcha_id = 0
 
 bot_enabled = True
 corovan_enabled = True
@@ -91,8 +90,6 @@ def work_with_message(receiver):
 
 def queue_worker():
     global get_info_diff
-    global arena_delay
-    global arena_delay_day
     global tz
     lt_info = 0
     # гребаная магия
