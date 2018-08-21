@@ -26,7 +26,6 @@ order_usernames = ''
 # имя замка
 castle_name = 'blue'
 
-captcha_bot = 'ChatWarsCaptchaBot'
 
 # путь к сокет файлу
 socket_path = ''
@@ -177,7 +176,6 @@ def queue_worker():
     lt_info = 0
     # гребаная магия
     print(sender.contacts_search(bot_username))
-    print(sender.contacts_search(captcha_bot))
     sleep(3)
     while True:
         try:
