@@ -249,7 +249,6 @@ def parse_text(text, username, message_id):
             arena_running = False
 
         elif corovan_enabled and text.find(' пытается ограбить') != -1:
-            time.sleep(random.randint(2, 40))
             action_list.append(orders['corovan'])
 
         elif text.find('Битва семи замков через') != -1:
