@@ -34,12 +34,6 @@ host = 'localhost'
 # порт по которому слушать
 port = 1338
 
-# скидывание денег покупкой/продажей шлемов
-donate_buying = False
-
-# включить прокачку при левелапе
-lvl_up = 'lvl_off'
-
 # имя группы
 group_name = ''
 
@@ -59,12 +53,6 @@ for opt, arg in opts:
         host = arg
     elif opt in ('-p', '--port'):
         port = int(arg)
-    elif opt in ('-g', '--gold'):
-        gold_to_left = int(arg)
-    elif opt in ('-b', '--buy'):
-        donate_buying = bool(arg)
-    elif opt in ('-l', '--lvlup'):
-        lvl_up = arg
     elif opt in ('-n', '--group_name'):
         group_name = arg
 
