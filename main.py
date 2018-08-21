@@ -199,18 +199,6 @@ def parse_text(text, username, message_id):
     if bot_enabled and username == bot_username:
         log('Получили сообщение от бота. Проверяем условия')
 
-        if text.find('🌟Поздравляем! Новый уровень!') != -1 and lvl_up != 'lvl_off':
-            log('получили уровень - {0}'.format(orders[lvl_up]))
-            action_list.append('/level_up')
-            action_list.append(orders[lvl_up])
-
-        
-        elif 'На сегодня ты уже своё отвоевал. Приходи завтра.' in text:
-            arena_delay = True
-            arena_delay_day = datetime.now(tz).day
-            log("Отдыхаем денек от арены")
-            arena_running = False
-
         elif corovan_enabled and text.find(' пытается ограбить') != -1:
             action_list.append(orders['corovan'])
 
