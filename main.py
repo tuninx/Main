@@ -109,23 +109,10 @@ def queue_worker():
 def parse_text(text, username, message_id):
     global hero_message_id
     global bot_enabled
-    global arena_enabled
-    global les_enabled
-    global peshera_enabled
     global corovan_enabled
-    global order_enabled
-    global auto_def_enabled
-    global donate_enabled
-    global donate_buying
-    global last_captcha_id
-    global arena_delay
-    global arena_delay_day
     global tz
-    global arena_running
-    global lvl_up
     global pref
     global msg_receiver
-    global quest_fight_enabled
     if bot_enabled and username == bot_username:
         log('Получили сообщение от бота. Проверяем условия')
 
