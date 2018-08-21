@@ -209,22 +209,7 @@ def parse_text(text, username, message_id):
             action_list.append('/level_up')
             action_list.append(orders[lvl_up])
 
-        elif "На выходе из замка охрана никого не пропускает" in text:
-            # send_msg('@', admin_username, "Командир, у нас проблемы с капчой! #captcha " + '|'.join(captcha_answers.keys()))
-            # fwd('@', admin_username, message_id)
-            action_list.clear()
-            bot_enabled = False
-            last_captcha_id = message_id
-            fwd('@', captcha_bot, message_id)
-
-        elif 'Не умничай!' in text or 'Ты долго думал, аж вспотел от напряжения' in text:
-            send_msg('@', admin_username, "Командир, у нас проблемы с капчой! #captcha " + '|'.join(captcha_answers.keys()))
-            bot_enabled = False
-            if last_captcha_id != 0:
-                fwd('@', admin_username, message_id)
-            else:
-                send_msg('@', admin_username, 'Капча не найдена?')
-
+        
         elif 'На сегодня ты уже своё отвоевал. Приходи завтра.' in text:
             arena_delay = True
             arena_delay_day = datetime.now(tz).day
@@ -313,11 +298,6 @@ def parse_text(text, username, message_id):
             c = re.search('(\/fight.*)', text).group(1)
             action_list.append(c)
 
-    elif username == 'ChatWarsCaptchaBot':
-        if len(text) <= 4 and text in captcha_answers.values():
-            sleep(3)
-            action_list.append(text)
-            bot_enabled = True
 
     else:
         if bot_enabled and order_enabled and username in order_usernames:
