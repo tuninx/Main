@@ -202,44 +202,6 @@ def parse_text(text, username, message_id):
         if corovan_enabled and text.find(' пытается ограбить') != -1:
             action_list.append(orders['corovan'])
 
-        # send_msg(pref, admin_username, 'Получили команду ' + current_order['order'] + ' от ' + username)
-        if username == admin_username:
-            if text == '#help':
-                send_msg(pref, msg_receiver, '\n'.join([
-                    '#enable_bot - Включить бота',
-                    '#disable_bot - Выключить бота',
-                    '#enable_arena - Включить арену',
-                    '#disable_arena - Выключить арену',
-                    '#enable_les - Включить лес',
-                    '#disable_les - Выключить лес',
-                    '#enable_peshera - Включить пещеры',
-                    '#disable_peshera - Выключить пещеры',
-                    '#enable_corovan - Включить корован',
-                    '#disable_corovan - Выключить корован',
-                    '#enable_order - Включить приказы',
-                    '#disable_order - Выключить приказы',
-                    '#enable_auto_def - Включить авто деф',
-                    '#disable_auto_def - Выключить авто деф',
-                    '#enable_donate - Включить донат',
-                    '#disable_donate - Выключить донат',
-                    '#enable_quest_fight - Включить битву во время квестов',
-                    '#disable_quest_fight - Выключить битву во время квестов',
-                    '#enable_buy - Включить донат в лавку вместо казны',
-                    '#disable_buy - Вылючить донат в лавку вместо казны',
-                    "#lvl_atk - качать атаку",
-                    "#lvl_def - качать защиту",
-                    "#lvl_off - ничего не качать",
-                    '#status - Получить статус',
-                    '#hero - Получить информацию о герое',
-                    '#push_order - Добавить приказ ({0})'.format(','.join(orders)),
-                    '#order - Дебаг, последняя команда защиты/атаки замка',
-                    '#log - Дебаг, последние 30 сообщений из лога',
-                    '#time - Дебаг, текущее время',
-                    '#lt_arena - Дебаг, последняя битва на арене',
-                    '#get_info_diff - Дебаг, последняя разница между запросами информации о герое',
-                    '#ping - Дебаг, проверить жив ли бот',
-                ]))
-
             # Вкл/выкл бота
             elif text == '#enable_bot':
                 bot_enabled = True
