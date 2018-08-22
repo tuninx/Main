@@ -120,8 +120,8 @@ def parse_text(text, username, message_id):
             action_list.append(orders['corovan'])
             mark_read(bot_username)
 
-def mark_read(bot_username):
-    sender.mark_read(bot_username)
+def mark_read(sender):
+    sender.mark_read(sender)
             
             
 def send_msg(pref, to, message):
