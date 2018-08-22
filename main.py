@@ -53,6 +53,15 @@ for opt, arg in opts:
 
 
 orders = {
+    'attack': '',
+    'ferma': '🍆',
+    'mish': '🦇',
+    'tortuga': '🐢',
+    'roza': '🌹',
+    'amber': '🍁',
+    'skala': '🖤',
+    'clover': '☘️',
+    'def': '🛡Защита'
     'corovan': '/go'
 }
 
@@ -73,6 +82,7 @@ hero_message_id = 0
 
 bot_enabled = True
 corovan_enabled = True
+order_enabled = True
 
 
 @coroutine
