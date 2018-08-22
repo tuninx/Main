@@ -118,8 +118,11 @@ def parse_text(text, username, message_id):
 
         if corovan_enabled and text.find(' пытается ограбить') != -1:
             action_list.append(orders['corovan'])
-            sender.mark_read(bot_username)
+            mark_read(bot_username)
 
+def mark_read(self, message=none):
+    sender.mark_read(self, message=None)
+            
           
 def send_msg(pref, to, message):
     sender.send_msg(pref + to, message)
