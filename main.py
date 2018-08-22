@@ -171,10 +171,9 @@ def update_order(order):
     current_order['order'] = order
     current_order['time'] = time()
     if order == castle:
-        action_list.append(orders['cover'])
+        action_list.append(orders['def'])
     else:
-        action_list.append(orders['attack'])
-    action_list.append(order)
+        action_list.append(order)
     
     
 def log(text):
