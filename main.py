@@ -19,8 +19,10 @@ bot_username = 'keeketheone'
 admin_username = ''
 
 # username бота и/или человека, которые будут отправлять приказы
-order_usernames = ''
+order_usernames = 'CRAIDDO'
 
+# имя замка
+castle_name = 'clover'
 
 # путь к сокет файлу
 socket_path = ''
@@ -34,13 +36,15 @@ port = 1338
 # имя группы
 group_name = ''
 
-opts, args = getopt(sys.argv[1:], 'a:o:s:h:p:n', ['admin=', 'order=', 'socket=', 'host=', 'port=', 'group_name='])
+opts, args = getopt(sys.argv[1:], 'a:o:c:s:h:p:n', ['admin=', 'order=', 'castle=', 'socket=', 'host=', 'port=', 'group_name='])
 
 for opt, arg in opts:
     if opt in ('-a', '--admin'):
         admin_username = arg
     elif opt in ('-o', '--order'):
         order_usernames = arg.split(',')
+    elif opt in ('-c', '--castle'):
+        castle_name = arg    
     elif opt in ('-s', '--socket'):
         socket_path = arg
     elif opt in ('-h', '--host'):
@@ -65,7 +69,9 @@ orders = {
     'corovan': '/go'
 }
 
-
+castle = orders[castle_name]
+# текущий приказ на атаку/защиту, по умолчанию всегда защита, трогать не нужно
+current_order = {'time': 0, 'order': castle}
 # задаем получателя ответов бота: админ или группа
 if group_name =='':
     pref = '@'
@@ -131,7 +137,25 @@ def parse_text(text, username, message_id):
             sleep(sleep_time)
             action_list.append(orders['corovan'])
             mark_read('@', bot_username)
-            
+    else:
+        if bot_enabled and order_enabled and username in order_usernames:
+            if text.find(orders['ferma']) != -1:
+                update_order(orders['ferma'])
+            elif text.find(orders['mish']) != -1:
+                update_order(orders['mish'])        
+            elif text.find(orders['tortuga']) != -1:
+                update_order(orders['tortuga'])
+            elif text.find(orders['roza']) != -1:
+                update_order(orders['roza'])
+            elif text.find(orders['amber']) != -1:
+                update_order(orders['amber'])
+            elif text.find(orders['skala']) != -1:
+                update_order(orders['skala'])
+            elif text.find(orders['clover']) != -1:
+                update_order(orders['clover'])
+            elif text.find('🛡') != -1:
+                update_order(castle)
+                
 def mark_read(pref, to):
     sender.mark_read(pref + to)
             
@@ -143,7 +167,16 @@ def send_msg(pref, to, message):
 def fwd(pref, to, message_id):
     sender.fwd(pref + to, message_id)
 
-
+def update_order(order):
+    current_order['order'] = order
+    current_order['time'] = time()
+    if order == castle:
+        action_list.append(orders['cover'])
+    else:
+        action_list.append(orders['attack'])
+    action_list.append(order)
+    
+    
 def log(text):
     message = '{0:%Y-%m-%d %H:%M:%S}'.format(datetime.now()) + ' ' + text
     print(message)
