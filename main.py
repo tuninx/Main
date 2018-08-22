@@ -13,13 +13,13 @@ import random
 import pytz
 
 # username игрового бота
-bot_username = 'keeketheone'
+bot_username = 'ChatWarsBot'
 
 # ваш username или username человека, который может отправлять запросы этому скрипту
-admin_username = 'CRAIDDO'
+admin_username = ''
 
 # username бота и/или человека, которые будут отправлять приказы
-order_usernames = 'CRAIDDO'
+order_usernames = ''
 
 # имя замка
 castle_name = 'clover'
@@ -159,13 +159,6 @@ def parse_text(text, username, message_id):
             elif text.find('Деф') != -1:
                 update_order(castle)  
                 
-        if username == admin_username:    
-            if text == '#status':
-                send_msg(pref, msg_receiver, '\n'.join([
-                    '🤖Бот включен: {0}',
-                    '🐫Корованы включены: {6}',
-                    '🇪🇺Приказы включены: {8}',                   
-                ]).format(bot_enabled, corovan_enabled, order_enabled))
                 
 def mark_read(pref, to):
     sender.mark_read(pref + to)
