@@ -57,7 +57,7 @@ for opt, arg in opts:
 
 
 orders = {
-    'attack': '',
+    'attack': '⚔Атака',
     'ferma': '🍆',
     'mish': '🦇',
     'tortuga': '🐢',
