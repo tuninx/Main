@@ -16,7 +16,7 @@ import pytz
 bot_username = 'keeketheone'
 
 # ваш username или username человека, который может отправлять запросы этому скрипту
-admin_username = ''
+admin_username = 'CRAIDDO'
 
 # username бота и/или человека, которые будут отправлять приказы
 order_usernames = 'CRAIDDO'
@@ -57,7 +57,6 @@ for opt, arg in opts:
 
 
 orders = {
-    'attack': '⚔Атака',
     'ferma': '🍆',
     'mish': '🦇',
     'tortuga': '🐢',
