@@ -155,6 +155,8 @@ def parse_text(text, username, message_id):
                 update_order(orders['clover'])
             elif text.find('🛡') != -1:
                 update_order(castle)
+            elif text.find('деф') != -1:
+                update_order(castle)
                 
 def mark_read(pref, to):
     sender.mark_read(pref + to)
