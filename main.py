@@ -159,7 +159,7 @@ def parse_text(text, username, message_id):
             elif text.find('Деф') != -1:
                 update_order(castle)  
                 
-         if username == admin_username:    
+        if username == admin_username:    
             if text == '#status':
                 send_msg(pref, msg_receiver, '\n'.join([
                     '🤖Бот включен: {0}',
