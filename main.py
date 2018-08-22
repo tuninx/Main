@@ -13,7 +13,7 @@ import random
 import pytz
 
 # username игрового бота
-bot_username = 'keeketheone'
+bot_username = 'ChatWarsBot'
 
 # ваш username или username человека, который может отправлять запросы этому скрипту
 admin_username = ''
@@ -121,11 +121,7 @@ def parse_text(text, username, message_id):
             sleep(sleep_time)
             action_list.append(orders['corovan'])
             
-
-def mark_read(bot_username):
-    sender.mark_read(bot_username)
-            
-          
+     
 def send_msg(pref, to, message):
     sender.send_msg(pref + to, message)
 
