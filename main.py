@@ -120,7 +120,7 @@ def parse_text(text, username, message_id):
             sleep_time = random.randint(2, 15)
             sleep(sleep_time)
             action_list.append(orders['corovan'])
-            mark_read(bot_username)
+            mark_read('@', bot_username)
             
 def mark_read(pref, to):
     sender.mark_read(pref + to)
