@@ -119,7 +119,7 @@ def parse_text(text, username, message_id):
         if corovan_enabled and text.find(' пытается ограбить') != -1:
             hero_message_id = message_id
             action_list.append(orders['corovan'])
-            mark_read
+            mark_read(self, hero_message_id)
 
 def mark_read(self, hero_message_id):
     sender.mark_read(self, hero_message_id)
