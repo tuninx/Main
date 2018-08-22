@@ -121,7 +121,7 @@ def parse_text(text, username, message_id):
             mark_read(bot_username)
 
 def mark_read(pref, to):
-    sender.mark_read(pref +to)
+    sender.mark_read(pref + to)
             
             
 def send_msg(pref, to, message):
