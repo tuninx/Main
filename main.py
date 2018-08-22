@@ -100,7 +100,7 @@ def queue_worker():
             if len(action_list):
                 log('Отправляем ' + action_list[0])
                 send_msg('@', bot_username, action_list.popleft())
-            sleep_time = random.randint(2, 15)
+            sleep_time = random.randint(2, 5)
             sleep(sleep_time)
         except Exception as err:
             log('Ошибка очереди: {0}'.format(err))
@@ -117,7 +117,7 @@ def parse_text(text, username, message_id):
         log('Получили сообщение от бота. Проверяем условия')
 
         if corovan_enabled and text.find(' пытается ограбить') != -1:
-            sleep_time = random.randint(2, 5)
+            sleep_time = random.randint(2, 15)
             sleep(sleep_time)
             action_list.append(orders['corovan'])
             
