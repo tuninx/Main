@@ -160,7 +160,7 @@ def parse_text(text, username, message_id):
                 update_order(castle)  
                 
         if username == admin_username:
-            if text == '#status':
+            elif text == '#status':
                 send_msg(pref, msg_receiver, '\n'.join([
                     '🤖Бот включен: {1}',
                     '🐫Корованы включены: {2}',
