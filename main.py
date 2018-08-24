@@ -160,11 +160,11 @@ def parse_text(text, username, message_id):
                 update_order(castle)  
                 
         if username == admin_username:
-            elif text == '#status':
+            if text == '#status':
                 send_msg(pref, msg_receiver, '\n'.join([
-                    '🤖Бот включен: {1}',
-                    '🐫Корованы включены: {2}',
-                    '🇪🇺Приказы включены: {3}',
+                    '🤖Бот включен: {0}',
+                    '🐫Корованы включены: {1}',
+                    '🇪🇺Приказы включены: {2}',
                 ]).format(bot_enabled, corovan_enabled, order_enabled))
                 
             elif text == '#enable_bot':
