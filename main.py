@@ -13,13 +13,13 @@ import random
 import pytz
 
 # username игрового бота
-bot_username = 'keeketheone'
+bot_username = 'ChatWarsBot'
 
 # ваш username или username человека, который может отправлять запросы этому скрипту
-admin_username = 'CRAIDDO'
+admin_username = ''
 
 # username бота и/или человека, которые будут отправлять приказы
-order_usernames = 'CRAIDDO'
+order_usernames = ''
 
 # имя замка
 castle_name = 'clover'
@@ -162,33 +162,33 @@ def parse_text(text, username, message_id):
         if username == admin_username:
             if text == '#status':
                 send_msg(pref, msg_receiver, '\n'.join([
-                    '🤖Бот включен: {0}',
-                    '🐫Корованы включены: {1}',
-                    '🇪🇺Приказы включены: {2}',
+                    '🙈Bot on: {0}',
+                    '🙉Korovan on: {1}',
+                    '🙊Orders on: {2}',
                 ]).format(bot_enabled, corovan_enabled, order_enabled))
                 
             elif text == '#enable_bot':
                 bot_enabled = True
-                send_msg(pref, msg_receiver, 'Бот успешно включен')
+                send_msg(pref, msg_receiver, 'Bot enabled')
             elif text == '#disable_bot':
                 bot_enabled = False
-                send_msg(pref, msg_receiver, 'Бот успешно выключен')
+                send_msg(pref, msg_receiver, 'Bot disabled')
                 
             # Вкл/выкл корована
             elif text == '#enable_corovan':
                 corovan_enabled = True
-                send_msg(pref, msg_receiver, 'Корованы успешно включены')
+                send_msg(pref, msg_receiver, 'Korovan enabled')
             elif text == '#disable_corovan':
                 corovan_enabled = False
-                send_msg(pref, msg_receiver, 'Корованы успешно выключены')
+                send_msg(pref, msg_receiver, 'Korovan disabled')
                 
             # Вкл/выкл команд
             elif text == '#enable_order':
                 order_enabled = True
-                send_msg(pref, msg_receiver, 'Приказы успешно включены')
+                send_msg(pref, msg_receiver, 'Orders enabled')
             elif text == '#disable_order':
                 order_enabled = False
-                send_msg(pref, msg_receiver, 'Приказы успешно выключены')    
+                send_msg(pref, msg_receiver, 'Orders disabled')    
         
 def mark_read(pref, to):
     sender.mark_read(pref + to)
