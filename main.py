@@ -13,13 +13,13 @@ import random
 import pytz
 
 # username игрового бота
-bot_username = 'ChatWarsBot'
+bot_username = 'keeketheone'
 
 # ваш username или username человека, который может отправлять запросы этому скрипту
-admin_username = ''
+admin_username = 'CRAIDDO'
 
 # username бота и/или человека, которые будут отправлять приказы
-order_usernames = ''
+order_usernames = 'CRAIDDO'
 
 # имя замка
 castle_name = 'clover'
@@ -159,7 +159,37 @@ def parse_text(text, username, message_id):
             elif text.find('Деф') != -1:
                 update_order(castle)  
                 
+        if username == admin_username:
+            if text == '#status':
+                send_msg(pref, msg_receiver, '\n'.join([
+                    '🤖Бот включен: {1}',
+                    '🐫Корованы включены: {2}',
+                    '🇪🇺Приказы включены: {3}',
+                ]).format(bot_enabled, corovan_enabled, order_enabled))
                 
+            elif text == '#enable_bot':
+                bot_enabled = True
+                send_msg(pref, msg_receiver, 'Бот успешно включен')
+            elif text == '#disable_bot':
+                bot_enabled = False
+                send_msg(pref, msg_receiver, 'Бот успешно выключен')
+                
+            # Вкл/выкл корована
+            elif text == '#enable_corovan':
+                corovan_enabled = True
+                send_msg(pref, msg_receiver, 'Корованы успешно включены')
+            elif text == '#disable_corovan':
+                corovan_enabled = False
+                send_msg(pref, msg_receiver, 'Корованы успешно выключены')
+                
+            # Вкл/выкл команд
+            elif text == '#enable_order':
+                order_enabled = True
+                send_msg(pref, msg_receiver, 'Приказы успешно включены')
+            elif text == '#disable_order':
+                order_enabled = False
+                send_msg(pref, msg_receiver, 'Приказы успешно выключены')    
+        
 def mark_read(pref, to):
     sender.mark_read(pref + to)
             
