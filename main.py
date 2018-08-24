@@ -122,7 +122,7 @@ def queue_worker():
 
 
 def parse_text(text, username, message_id):
-    global hero_message_id
+    global order_enabled
     global bot_enabled
     global corovan_enabled
     global tz
